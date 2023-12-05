@@ -31,7 +31,29 @@ int main() {
     ifstream fin(to_string(DAY) + "input.txt");
     int out = 0;
 
+    string s, ss;
+
+    while (getline(fin, s)) {
+        stringstream sin(s);
+        sin >> ss >> ss;
+        map<int, bool> m;
+        int n;
+        rep(i, 0, 10) {
+            sin >> n;
+            m[n] = true;
+        }
+        sin >> ss;
+        int o = 0;
+        while (sin >> n) {
+            if (m.count(n)) {
+                if (o==0) o=1;
+                else o*=2;
+            }
+        }
+        out += o;
+    }
+
     cout << out << '\n';
 
-    //   submit(out);
+      submit(out);
 }
